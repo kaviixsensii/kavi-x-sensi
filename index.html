@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#07070c">
+<meta name="description" content="Sensi Store - Android and iOS gaming packs.">
+<meta property="og:site_name" content="Sensi Store">
+<meta property="og:title" content="Sensi Store">
+<title>Sensi Store | Free Fire Gaming & Sensitivity</title>
+<style>
+:root{
+  --bg:#05050a;--card:#0c0c14;--card2:#11111b;--text:#fff;--muted:#9c9baa;
+  --purple:#ff3030;--purple2:#c90000;--line:#272331;--green:#18df78;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;
+ overflow-x:hidden;
+}
+body:before{content:none;}
+a{color:inherit}
+.container{width:min(1080px,calc(100% - 34px));margin:auto}
+header{
+ position:sticky;top:0;z-index:50;background:rgba(5,5,10,.78);
+ backdrop-filter:blur(18px);border-bottom:1px solid #201c29;
+}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:25px;font-weight:900;letter-spacing:-1.2px}
+.logo span{color:var(--purple)}
+.menu{
+ background:#000000;border:1px solid #30293a;color:#fff;border-radius:14px;
+ padding:10px 14px;font-size:22px;cursor:pointer
+}
+.drawer{
+ display:none;position:absolute;right:17px;top:68px;width:205px;padding:8px;
+ background:#000000;border:1px solid #30283b;border-radius:16px;box-shadow:0 20px 60px #000;
+}
+.drawer.open{display:block}
+.drawer a{display:block;text-decoration:none;padding:13px 14px;color:#ddd;border-radius:10px}
+.drawer a:hover{background:#1a1a1a}
+.hero{text-align:center;padding:92px 0 70px}
+.badge{
+ display:inline-block;padding:9px 16px;border:1px solid #6e2525;border-radius:999px;
+ background:#14131b;color:#d2cdd9;font-size:14px
+}
+.hero h1{font-size:clamp(48px,9vw,92px);line-height:.94;letter-spacing:-5px;margin:26px 0 18px}
+.gradient{color:var(--purple)}
+.hero p{max-width:700px;margin:auto;color:var(--muted);font-size:19px;line-height:1.6}
+.btn{
+ display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;
+ border:0;border-radius:999px;padding:16px 25px;margin-top:28px;font-weight:900;
+ background:linear-gradient(110deg,var(--purple2),var(--purple));color:white;
+ box-shadow:0 0 34px #ff202055;cursor:pointer
+}
+.btn.whatsapp{background:#16c86b;box-shadow:0 0 30px #16c86b33}
+.stats{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:25px}
+.stat{padding:12px 15px;color:#ddd}
+.section{padding:60px 0}
+.heading{text-align:center;font-size:40px;margin:0 0 10px}
+.sub{color:var(--muted);text-align:center;line-height:1.6;max-width:680px;margin:0 auto 30px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.card{
+ background:linear-gradient(180deg,var(--card2),var(--card));
+ border:1px solid var(--line);border-radius:26px;padding:27px;
+ box-shadow:0 18px 55px #0008
+}
+.card h3{font-size:28px;margin:0 0 8px}
+.price{font-size:36px;font-weight:900;margin:14px 0 20px}
+.price small{font-size:14px;color:var(--muted);font-weight:500}
+.features{border-top:1px solid #292431;padding-top:12px}
+.features div{padding:9px 0;color:#ddd}
+.features div:before{
+ content:"✓";display:inline-grid;place-items:center;width:20px;height:20px;
+ margin-right:10px;border-radius:50%;background:var(--green);color:#03100a;font-size:12px;font-weight:900
+}
+.feature-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.feature{text-align:center}
+.icon{font-size:40px;margin-bottom:10px}
+.calculator{max-width:720px;margin:auto}
+.inputrow{display:flex;gap:10px}
+input{
+ flex:1;min-width:0;border-radius:999px;border:1px solid #403848;
+ background:#1a1a22;color:#fff;padding:16px 20px;font-size:16px;outline:none
+}
+.result{min-height:25px;margin-top:15px;color:#ff9b9b;text-align:center}
+.cta{text-align:center;padding:60px 24px}
+.cta h2{font-size:38px;margin:0 0 10px}
+.footer{text-align:center;color:#777;border-top:1px solid #211c2a;padding:40px 20px}
+.note{font-size:12px;color:#777;margin-top:14px}
+@media(max-width:700px){
+ .container{width:min(100% - 28px,1080px)}
+ .nav{height:68px}
+ .hero{padding:65px 0 50px}
+ .hero h1{letter-spacing:-3px}
+ .grid,.feature-grid{grid-template-columns:1fr}
+ .inputrow{flex-direction:column}
+ .inputrow .btn{margin-top:0}
+ .heading{font-size:33px}
+}
+
+.kx-brand-logo{display:flex;align-items:center;justify-content:center;gap:12px;min-height:170px;margin:0 0 18px;padding:22px;border:1px solid #5b1717;border-radius:18px;background:radial-gradient(circle at 30% 30%,#3a0505,#08080d 65%);box-shadow:0 0 28px #ff202022}
+.kx-brand-mark{display:grid;place-items:center;width:78px;height:78px;border-radius:50%;font-size:48px;font-weight:1000;font-style:italic;color:#fff;border:3px solid #ff2929;text-shadow:0 0 15px #ff2020;box-shadow:0 0 20px #ff202044}
+.kx-brand-name{font-size:clamp(25px,5vw,42px);font-weight:1000;letter-spacing:-1.5px;color:#fff}
+.kx-brand-name b{color:#ff3030}
+.ios-menu-list{list-style:none;padding:0;margin:0 0 25px;text-align:center}
+.ios-menu-list li{padding:8px 0;border-bottom:1px solid rgba(255,255,255,.07);color:#eee;font-size:16px}
+.ios-menu-list small{display:block;color:#aaa;font-size:12px;margin-top:3px}
+@media(max-width:480px){.kx-brand-logo{min-height:130px}.kx-brand-mark{width:60px;height:60px;font-size:36px}}
+
+</style>
+    <meta name="description" content="Sensi Store — Free Fire sensitivity, device optimization, DPI tools, iOS and Android gaming packs, and gaming support.">
+    <meta name="keywords" content="Sensi Store, Free Fire sensitivity, Sensi Store, DPI calculator, iOS sensitivity, Android sensitivity, gaming optimization">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Sensi Store">
+    <meta property="og:title" content="Sensi Store | Gaming & Sensitivity">
+    <meta property="og:description" content="Sensi Store gaming sensitivity, optimization and DPI tools for iOS and Android.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Sensi Store",
+  "description": "Sensi Store gaming and sensitivity website for Free Fire players.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "{url}?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+
+<style id="kx-pack-v2">
+.kx-main-packs{padding-top:45px}
+.kx-main-packs .sub{margin-bottom:28px}
+.kx-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.kx-pack-card{background:linear-gradient(145deg,#080808,#000000);border:1px solid #8b1717;border-radius:22px;padding:30px;box-shadow:0 10px 40px rgba(0,0,0,.35)}
+.kx-pack-card h3{font-size:25px;line-height:1.25;margin:0 0 8px}
+.kx-pack-image{display:block;width:100%;max-height:220px;object-fit:cover;border-radius:14px;margin:0 0 18px;background:#1f0b0b;border:1px dashed #8b1717}
+.kx-image-placeholder{display:grid;place-items:center;min-height:120px;margin:0 0 18px;border:1px dashed #8b1717;border-radius:14px;color:#e0aaaa;text-align:center;padding:16px}
+.kx-price{font-size:28px;font-weight:900;margin-bottom:20px}
+.kx-pack-card ul{list-style:none;padding:0;margin:0 0 25px}
+.kx-pack-card li{padding:8px 0;border-bottom:1px solid rgba(255,255,255,.07);color:#eee}
+.kx-buy{display:block;text-align:center;padding:14px 20px;border-radius:12px;background:linear-gradient(90deg,#c90000,#ff3030);color:#fff;text-decoration:none;font-weight:900}
+.kx-links{padding-top:15px}
+.kx-link-grid{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.kx-link-grid .btn{margin-top:8px}
+@media(max-width:750px){.kx-grid{grid-template-columns:1fr}.kx-main-packs{padding-top:30px}}
+</style>
+
+
+<style id="red-particle-background">
+#red-particle-canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9999;opacity:.72}
+@media (prefers-reduced-motion: reduce){#red-particle-canvas{display:none}}
+</style>
+
+<style id="kx-intro-loader-style">
+#kx-intro-loader{position:fixed;inset:0;z-index:100000;background:radial-gradient(circle at 50% 42%,#210707 0%,#08080d 42%,#020204 100%);display:flex;align-items:center;justify-content:center;padding:24px;transition:opacity .45s ease,visibility .45s ease}
+#kx-intro-loader.kx-loader-done{opacity:0;visibility:hidden;pointer-events:none}
+.kx-loader-inner{width:min(420px,100%);text-align:center}
+.kx-loader-logo{font-size:clamp(30px,8vw,46px);font-weight:950;letter-spacing:-1.8px;color:#fff;text-shadow:0 0 24px #ff171744}
+.kx-loader-logo span{color:#ff3030}
+.kx-loader-tag{color:#aaa;font-size:12px;letter-spacing:3px;margin-top:12px}
+.kx-loader-number{font-size:52px;font-weight:900;margin:32px 0 12px;color:#fff;font-variant-numeric:tabular-nums}
+.kx-loader-number span{color:#ff3030}
+.kx-loader-track{height:7px;border-radius:20px;background:#292027;overflow:hidden;border:1px solid #492020}
+#kx-loader-progress{height:100%;width:0;background:linear-gradient(90deg,#a90000,#ff2020,#ff7777);border-radius:20px;box-shadow:0 0 18px #ff2020;transition:width .08s linear}
+.kx-loader-status{color:#c6bfc5;font-size:12px;letter-spacing:2px;margin-top:16px}
+.kx-loader-pulse{display:inline-block;width:6px;height:6px;border-radius:50%;background:#ff3030;margin-right:7px;box-shadow:0 0 12px #ff3030}
+@media(prefers-reduced-motion:reduce){#kx-intro-loader{transition:none}}
+</style>
+
+
+<style id="sensi-store-ios-card">
+.sensi-ios-pack{text-align:center}
+.sensi-ios-icon{display:grid;place-items:center;width:100%;min-height:145px;border-radius:18px;background:radial-gradient(circle at 50% 25%,#ff4040,#260707 68%,#080808);border:1px solid #ff3030;color:#fff;font-size:74px;font-weight:900;margin-bottom:18px;text-shadow:0 0 22px #ff2020}
+.sensi-ios-pack p{color:#bbb;margin:10px 0}
+</style>
+</head>
+<body>
+
+<div id="kx-intro-loader" role="status" aria-label="Loading Sensi Store website">
+  <div class="kx-loader-inner">
+    <div class="kx-loader-logo">SENSI <span>STORE</span></div>
+    <div class="kx-loader-tag">GAMING • SENSITIVITY • OPTIMIZATION</div>
+    <div class="kx-loader-number"><span id="kx-loader-number">0</span><span>%</span></div>
+    <div class="kx-loader-track"><div id="kx-loader-progress"></div></div>
+    <div class="kx-loader-status"><i class="kx-loader-pulse"></i>PREPARING YOUR EXPERIENCE</div>
+  </div>
+</div>
+
+
+<header>
+ <div class="container nav">
+   <div class="logo">SENSI <span>STORE</span></div>
+   <button class="menu" onclick="toggleMenu()">☰</button>
+   <div id="drawer" class="drawer">
+     <a href="#packs" onclick="closeMenu()">📦 Packs</a>
+     <a href="#tools" onclick="closeMenu()">⚡ Tools</a>
+     <a href="#why" onclick="closeMenu()">🔥 Features</a>
+     <a href="#support" onclick="closeMenu()">💬 Support</a>
+     <a href="#join" onclick="closeMenu()">🟢 WhatsApp Links</a>
+   </div>
+ </div>
+</header>
+
+<main>
+<section class="hero container">
+ <div class="badge">🎮 Sensi Store • GAMING TOOLS</div>
+ <h1>LEVEL UP YOUR<br><span class="gradient">GAME & SENSITIVITY</span></h1>
+ <p>Premium gaming settings, optimization resources and useful tools — all in one place for mobile gamers.</p>
+ <a class="btn" href="#packs">GET SENSI PACK →</a>
+ <div class="stats">
+   <div class="stat">🛡️ Clean & Simple</div>
+   <div class="stat">⚡ Fast Tools</div>
+   <div class="stat">🎯 Gaming Focused</div>
+ </div>
+
+<section id="packs" class="section container kx-main-packs">
+<h2 class="heading">📦 Sensi Store PACKS</h2>
+<p class="sub">Android සඳහා Sensi Store Packs</p>
+<div class="kx-grid"> <article class="kx-pack-card sensi-ios-pack">
+ <div class="kx-brand-logo" role="img" aria-label="Sensi Store logo"><span class="kx-brand-mark">S</span><span class="kx-brand-name">SENSI <b>STORE</b></span></div>
+ <h3>🍎 iOS PACK</h3>
+ <div class="kx-price">රු. 2,500</div>
+ <p>iOS gaming pack</p>
+ <ul class="ios-menu-list">
+  <li><span style="color:#00d26a;font-weight:900">✓</span> 1) 🚀 SCRIPT MENU <small>1 item</small></li>
+  <li><span style="color:#00d26a;font-weight:900">✓</span> 2) 🎮 GAME SENSITIVE <small>3 items</small></li>
+  <li><span style="color:#00d26a;font-weight:900">✓</span> 3) 🛡️ DNS <small>16 items</small></li>
+  <li><span style="color:#00d26a;font-weight:900">✓</span> 4) 〰️ DRAG TRICKS <small>1 item</small></li>
+  <li><span style="color:#00d26a;font-weight:900">✓</span> 5) 🗺️ ISH <small>1 item</small></li>
+  <li><span style="color:#00d26a;font-weight:900">✓</span> 6) 🔥 SHORTCUT <small>2 items</small></li>
+  <li><span style="color:#00d26a;font-weight:900">✓</span> 7) ⚙️ PHONE SETTINGS <small>9 items</small></li>
+ </ul>
+ <a class="kx-buy" href="https://wa.me/94725861746?text=BUY%20IOS%20PACK" target="_blank" rel="noopener">BUY IOS PACK</a>
+</article> 
+<article class="kx-pack-card">
+ <div class="kx-brand-logo" role="img" aria-label="Sensi Store logo"><span class="kx-brand-mark">S</span><span class="kx-brand-name">SENSI <b>STORE</b></span></div>
+ 
+<h3>👑 SPECIAL PACK</h3>
+<div class="kx-price">රු. 3,000</div>
+<ul><li><span style="color:#00d26a;font-weight:900">✓</span> 1) AIM LOCK 🔴</li><li><span style="color:#00d26a;font-weight:900">✓</span> 2) AIMSTABLE 🎯</li><li><span style="color:#00d26a;font-weight:900">✓</span> 3) EASY DRAG REG ⬆️</li><li><span style="color:#00d26a;font-weight:900">✓</span> 4) RECOIL CONFIG ⚙️</li><li><span style="color:#00d26a;font-weight:900">✓</span> 5) RX95i 🔴</li><li><span style="color:#00d26a;font-weight:900">✓</span> 6) AX RECOIL FIX 🩸✅</li><li><span style="color:#00d26a;font-weight:900">✓</span> 7) OBB ⚜️</li><li><span style="color:#00d26a;font-weight:900">✓</span> 8) AIM SPREAD FIX ⚠️</li><li><span style="color:#00d26a;font-weight:900">✓</span> 9) BOOST 📱</li><li><span style="color:#00d26a;font-weight:900">✓</span> 10) ACTIVITY LAUNCHER 🔴👾</li><li><span style="color:#00d26a;font-weight:900">✓</span> 11) SENSI REGEDIT ☣️</li><li><span style="color:#00d26a;font-weight:900">✓</span> 12) SENSI MACRO 🩸📥☣️</li><li><span style="color:#00d26a;font-weight:900">✓</span> 13) SENSI TRICK BUTTON 💥</li><li><span style="color:#00d26a;font-weight:900">✓</span> 14) SENSI SPEEDBOOST 🔴</li><li><span style="color:#00d26a;font-weight:900">✓</span> 15) SENSI GAME HUD ⏏️</li></ul>
+<a class="kx-buy" href="https://wa.me/94743463182?text=BUY%20VIP%20SPACIAL%20PACK" target="_blank" rel="noopener">BUY NOW</a>
+</article>
+<article class="kx-pack-card">
+ <div class="kx-brand-logo" role="img" aria-label="Sensi Store logo"><span class="kx-brand-mark">S</span><span class="kx-brand-name">SENSI <b>STORE</b></span></div>
+ 
+<h3>🎮 FULL PACK</h3>
+<div class="kx-price">රු. 1,800</div>
+<ul><li><span style="color:#00d26a;font-weight:900">✓</span> 1) AIM LOCK 🔴</li><li><span style="color:#00d26a;font-weight:900">✓</span> 2) AIM SPREAD FIX 👾</li><li><span style="color:#00d26a;font-weight:900">✓</span> 3) SENSI DEVELOPER OPTIONS SETTING ⚙️</li><li><span style="color:#00d26a;font-weight:900">✓</span> 4) SENSI AIM STABLE 🔺</li><li><span style="color:#00d26a;font-weight:900">✓</span> 5) SENSI REGEDIT ☣️</li><li><span style="color:#00d26a;font-weight:900">✓</span> 6) SENSI EASY DRAG ⬆️</li><li><span style="color:#00d26a;font-weight:900">✓</span> 7) SENSI DRAG SMOOTH</li><li><span style="color:#00d26a;font-weight:900">✓</span> 8) SENSI DEVICE OPTIMIZE ⚙️👾</li><li><span style="color:#00d26a;font-weight:900">✓</span> 9) OBB ⚙️👾</li><li><span style="color:#00d26a;font-weight:900">✓</span> 10) SENSI FREE FIRE HUD ⬆️</li></ul>
+<a class="kx-buy" href="https://wa.me/94743463182?text=BUY%20FULL%20PACK" target="_blank" rel="noopener">BUY NOW</a>
+</article>
+<article class="kx-pack-card">
+ <div class="kx-brand-logo" role="img" aria-label="Sensi Store logo"><span class="kx-brand-mark">S</span><span class="kx-brand-name">SENSI <b>STORE</b></span></div>
+ 
+<h3>🔻 MEDIUM PACK</h3>
+<div class="kx-price">රු. 1,000</div>
+<ul><li><span style="color:#00d26a;font-weight:900">✓</span> 1) AIM LOCK 🔴</li><li><span style="color:#00d26a;font-weight:900">✓</span> 2) AIM SPREAD FIX ⚠️</li><li><span style="color:#00d26a;font-weight:900">✓</span> 3) SENSI MACRO 🩸📥☣️</li><li><span style="color:#00d26a;font-weight:900">✓</span> 4) RECOIL CONFIG ⚙️</li><li><span style="color:#00d26a;font-weight:900">✓</span> 5) SENSI REGEDIT ☣️</li><li><span style="color:#00d26a;font-weight:900">✓</span> 6) BOOST 📱</li><li><span style="color:#00d26a;font-weight:900">✓</span> 7) SENSI SPEEDBOOST 🔴</li><li><span style="color:#00d26a;font-weight:900">✓</span> 8) SENSI TRICK BUTTON 💥</li><li><span style="color:#00d26a;font-weight:900">✓</span> 9) SENSI GAME HUD ⏏️</li></ul>
+<a class="kx-buy" href="https://wa.me/94743463182?text=buy%20android%20low%20pack" target="_blank" rel="noopener">BUY NOW</a>
+</article>
+
+</div>
+
+
+</section>
+
+</section>
+
+<section id="join" class="section container kx-links">
+<div class="card cta">
+<h2>🟢 Sensi Store COMMUNITY</h2>
+<p class="sub">Packs බලලා ඉවරයි. දැන් අපේ WhatsApp Group සහ Channel එකට join වෙන්න.</p>
+<div class="kx-link-grid">
+<a class="btn whatsapp" href="https://chat.whatsapp.com/JmCgOszAk8t7gQBW9CNXIG?s=cl&p=a&mlu=4&ilr=4" target="_blank" rel="noopener">JOIN WHATSAPP GROUP →</a>
+<a class="btn" href="https://whatsapp.com/channel/0029Vb8ckW5ADTO9q1ckQO2Y" target="_blank" rel="noopener">JOIN WHATSAPP CHANNEL →</a>
+</div>
+</div>
+</section>
+
+<section id="tools" class="section container">
+ <h2 class="heading">⚡ SMART DPI CALCULATOR</h2>
+ <p class="sub">Enter your current DPI to get a simple starting range. Test and adjust it for your own device.</p>
+ <div class="card calculator">
+   <div class="inputrow">
+     <input id="dpi" type="number" placeholder="Enter DPI — e.g. 400">
+     <button class="btn" style="margin-top:0" onclick="calcDpi()">FIND →</button>
+   </div>
+   <div id="result" class="result"></div>
+ </div>
+</section>
+
+<section id="why" class="section container">
+ <h2 class="heading">🔥 Sensi Store</h2>
+ <p class="sub">Everything you need to keep your gaming resources organized and easy to access.</p>
+ <div class="feature-grid">
+   <div class="card feature"><div class="icon">🎯</div><h3>Better Setup</h3><p class="sub">Keep sensitivity and device settings together in one place.</p></div>
+   <div class="card feature"><div class="icon">⚡</div><h3>Optimization+</h3><p class="sub">Access your gaming tools quickly from any mobile browser.</p></div>
+   <div class="card feature"><div class="icon">📦</div><h3>Premium Packs</h3><p class="sub">Show your iOS and Android products with clear pricing.</p></div>
+   <div class="card feature"><div class="icon">💬</div><h3>Direct Support</h3><p class="sub">Send visitors straight to your WhatsApp group.</p></div>
+ </div>
+</section>
+
+<section id="support" class="section container">
+ <div class="card cta">
+   <h2>💬 Need Support?</h2>
+   <p class="sub">Use the WhatsApp group to contact Sensi Store and get the latest updates.</p>
+   <a class="btn whatsapp whatsapp-link" href="#" target="_blank">OPEN WHATSAPP →</a>
+ </div>
+</section>
+</main>
+
+
+<footer class="footer">© 2026 Sensi Store • All rights reserved</footer>
+
+<script>
+const WHATSAPP_GROUP_LINK = "https://chat.whatsapp.com/JmCgOszAk8t7gQBW9CNXIG?s=cl&p=a&mlu=4&ilr=4";
+
+document.querySelectorAll(".whatsapp-link").forEach(btn=>{
+  btn.addEventListener("click",e=>{
+    if(WHATSAPP_GROUP_LINK.includes("PASTE_YOUR")){
+      e.preventDefault();
+      alert("WhatsApp group link is connected.");
+    } else {
+      btn.href=WHATSAPP_GROUP_LINK;
+    }
+  });
+});
+
+function toggleMenu(){document.getElementById("drawer").classList.toggle("open")}
+function closeMenu(){document.getElementById("drawer").classList.remove("open")}
+function calcDpi(){
+ const d=Number(document.getElementById("dpi").value);
+ const r=document.getElementById("result");
+ if(!d || d<1){r.textContent="Please enter a valid DPI.";return}
+ r.textContent=`Suggested starting range: ${Math.round(d*.85)} – ${Math.round(d*1.15)} DPI`;
+}
+</script>
+
+<canvas id="red-particle-canvas" aria-hidden="true"></canvas>
+<script id="red-particle-animation">
+(()=>{
+ const canvas=document.getElementById('red-particle-canvas');
+ if(!canvas) return;
+ const ctx=canvas.getContext('2d');
+ if(!ctx) return;
+ let w=0,h=0,particles=[];
+ const count=window.innerWidth<600?32:58;
+ function resize(){
+  const dpr=Math.min(window.devicePixelRatio||1,2); w=window.innerWidth; h=window.innerHeight;
+  canvas.width=Math.floor(w*dpr); canvas.height=Math.floor(h*dpr);
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  particles=Array.from({length:count},()=>({x:Math.random()*w,y:Math.random()*h,r:.7+Math.random()*1.7,vx:(Math.random()-.5)*.42,vy:(Math.random()-.5)*.42,a:.25+Math.random()*.6}));
+ }
+ function draw(){
+  ctx.clearRect(0,0,w,h);
+  for(const p of particles){
+   p.x+=p.vx; p.y+=p.vy;
+   if(p.x<0)p.x=w; if(p.x>w)p.x=0; if(p.y<0)p.y=h; if(p.y>h)p.y=0;
+   ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+   ctx.fillStyle=`rgba(255,35,35,${p.a})`; ctx.shadowBlur=7; ctx.shadowColor='rgba(255,0,0,.7)'; ctx.fill();
+  }
+  ctx.shadowBlur=0; requestAnimationFrame(draw);
+ }
+ window.addEventListener('resize',resize,{passive:true}); resize(); draw();
+})();
+</script>
+
+<script id="kx-intro-loader-script">
+(function(){
+  function startLoader(){
+    var overlay=document.getElementById('kx-intro-loader');
+    var number=document.getElementById('kx-loader-number');
+    var bar=document.getElementById('kx-loader-progress');
+    if(!overlay) return;
+    var finished=false, progress=0, timer=null;
+    function finish(){
+      if(finished) return;
+      finished=true;
+      if(timer) clearInterval(timer);
+      if(number) number.textContent='100';
+      if(bar) bar.style.width='100%';
+      overlay.classList.add('kx-loader-done');
+      window.setTimeout(function(){
+        if(overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay);
+      },650);
+    }
+    // Safety fallback for Safari/iOS if an animation or timer is interrupted.
+    window.setTimeout(finish,4500);
+    if(!number || !bar){ finish(); return; }
+    timer=window.setInterval(function(){
+      progress=Math.min(100,progress+2);
+      number.textContent=String(progress);
+      bar.style.width=progress+'%';
+      if(progress>=100) window.setTimeout(finish,120);
+    },35);
+    document.addEventListener('visibilitychange',function(){
+      if(document.visibilityState==='visible' && !finished && progress>0){
+        // Resume safely when returning to the tab on mobile Safari.
+        number.textContent=String(progress);
+        bar.style.width=progress+'%';
+      }
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',startLoader,{once:true});
+  else startLoader();
+})();
+</script>
+
+
+<style id="kx-tap-plus-style">
+.kx-tap-plus{position:fixed;z-index:100001;pointer-events:none;color:#ff3030;font:900 22px/1 Arial,sans-serif;text-shadow:0 0 10px #ff3030;animation:kxPlusPop .55s ease-out forwards}
+@keyframes kxPlusPop{0%{opacity:0;transform:translate(-50%,-40%) scale(.55)}20%{opacity:1;transform:translate(-50%,-60%) scale(1.2)}100%{opacity:0;transform:translate(-50%,-125%) scale(.85)}}
+</style>
+<script id="kx-tap-plus-script">
+document.addEventListener("pointerdown",function(e){
+ const plus=document.createElement("span");
+ plus.className="kx-tap-plus";
+ plus.textContent="+";
+ plus.style.left=e.clientX+"px";
+ plus.style.top=e.clientY+"px";
+ document.body.appendChild(plus);
+ plus.addEventListener("animationend",()=>plus.remove(),{once:true});
+});
+</script>
+
+</body>
+</html>
