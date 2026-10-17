@@ -256,6 +256,7 @@ input{
  
 <h3>👑 SPECIAL PACK</h3>
 <div class="kx-price">රු. 3,000</div>
+<p class="kx-android-version">( Android version 11+ )</p>
 <details class="kx-plan-details"><summary><span class="kx-plan-label">▤&nbsp; View Plan Details</span><span class="kx-plan-chevron">⌄</span></summary><div class="kx-plan-scroll"><ul><li><span class="kx-detail-check">✓</span> 1) AIM LOCK 🔴</li><li><span class="kx-detail-check">✓</span> 2) AIMSTABLE 🎯</li><li><span class="kx-detail-check">✓</span> 3) EASY DRAG REG ⬆️</li><li><span class="kx-detail-check">✓</span> 4) RECOIL CONFIG ⚙️</li><li><span class="kx-detail-check">✓</span> 5) RX95i 🔴</li><li><span class="kx-detail-check">✓</span> 6) AX RECOIL FIX 🩸✅</li><li><span class="kx-detail-check">✓</span> 7) OBB ⚜️</li><li><span class="kx-detail-check">✓</span> 8) AIM SPREAD FIX ⚠️</li><li><span class="kx-detail-check">✓</span> 9) BOOST 📱</li><li><span class="kx-detail-check">✓</span> 10) ACTIVITY LAUNCHER 🔴👾</li><li><span class="kx-detail-check">✓</span> 11) SENSI REGEDIT ☣️</li><li><span class="kx-detail-check">✓</span> 12) SENSI MACRO 🩸📥☣️</li><li><span class="kx-detail-check">✓</span> 13) SENSI TRICK BUTTON 💥</li><li><span class="kx-detail-check">✓</span> 14) SENSI SPEEDBOOST 🔴</li><li><span class="kx-detail-check">✓</span> 15) SENSI GAME HUD ⏏️</li><li><span class="kx-detail-check">✓</span> ( android version 11+ )</li></ul></div></details>
 <a class="kx-buy" href="https://wa.me/94743463182?text=BUY%20VIP%20SPACIAL%20PACK" target="_blank" rel="noopener">BUY NOW</a>
 </article>
@@ -264,8 +265,21 @@ input{
  
 <h3>🎮 FULL PACK</h3>
 <div class="kx-price">රු. 1,800</div>
+<p class="kx-android-version">( Android version 11+ )</p>
 <details class="kx-plan-details"><summary><span class="kx-plan-label">▤&nbsp; View Plan Details</span><span class="kx-plan-chevron">⌄</span></summary><div class="kx-plan-scroll"><ul><li><span class="kx-detail-check">✓</span> 1) AIM LOCK 🔴</li><li><span class="kx-detail-check">✓</span> 2) AIM SPREAD FIX 👾</li><li><span class="kx-detail-check">✓</span> 3) SENSI DEVELOPER OPTIONS SETTING ⚙️</li><li><span class="kx-detail-check">✓</span> 4) SENSI AIM STABLE 🔺</li><li><span class="kx-detail-check">✓</span> 5) SENSI REGEDIT ☣️</li><li><span class="kx-detail-check">✓</span> 6) SENSI EASY DRAG ⬆️</li><li><span class="kx-detail-check">✓</span> 7) SENSI DRAG SMOOTH</li><li><span class="kx-detail-check">✓</span> 8) SENSI DEVICE OPTIMIZE ⚙️👾</li><li><span class="kx-detail-check">✓</span> 9) OBB ⚙️👾</li><li><span class="kx-detail-check">✓</span> 10) SENSI FREE FIRE HUD ⬆️</li><li><span class="kx-detail-check">✓</span> ( android version 11+ )</li></ul></div></details>
 <a class="kx-buy" href="https://wa.me/94743463182?text=BUY%20FULL%20PACK" target="_blank" rel="noopener">BUY NOW</a>
+</article>
+<article class="kx-pack-card">
+ <div class="kx-brand-logo" role="img" aria-label="Kavi X Sensi logo"><span class="kx-brand-mark">K</span><span class="kx-brand-name">KAVI <b>X SENSI</b></span></div>
+ <h3>🆓 FREE SENSI TOOL</h3>
+ <div class="kx-price">FREE</div>
+ <p>Free Sensi Tool — download the MediaFire file below.</p>
+ <a class="kx-buy" href="https://www.mediafire.com/file/5gzg2nmmoja6q4c/free+sensi+Kavi+X+sensi+👾🧃.7z/file" target="_blank" rel="noopener">DOWNLOAD FREE TOOL</a>
+ <div style="margin-top:16px;text-align:center">
+   <p style="margin:0 0 10px;color:#ddd">Password: <strong id="free-sensi-password">KaviXsensiiFree</strong></p>
+   <button type="button" class="kx-buy" style="width:100%;border:0;cursor:pointer" onclick="copyFreeSensiPassword()">COPY PASSWORD</button>
+   <p id="free-sensi-copy-status" class="note" aria-live="polite"></p>
+ </div>
 </article>
 
 
@@ -336,6 +350,27 @@ document.querySelectorAll(".whatsapp-link").forEach(btn=>{
   });
 });
 
+function copyFreeSensiPassword(){
+  const password = "KaviXsensiiFree";
+  const status = document.getElementById("free-sensi-copy-status");
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(password).then(()=>{status.textContent="Password copied!";}).catch(()=>fallbackCopyPassword(password,status));
+  } else {
+    fallbackCopyPassword(password,status);
+  }
+}
+function fallbackCopyPassword(password,status){
+  const field=document.createElement("textarea");
+  field.value=password;
+  field.setAttribute("readonly","");
+  field.style.position="fixed";
+  field.style.opacity="0";
+  document.body.appendChild(field);
+  field.select();
+  try { document.execCommand("copy"); status.textContent="Password copied!"; }
+  catch(e) { status.textContent="Copy failed — press and hold the password to copy it."; }
+  field.remove();
+}
 function toggleMenu(){document.getElementById("drawer").classList.toggle("open")}
 function closeMenu(){document.getElementById("drawer").classList.remove("open")}
 function calcDpi(){
